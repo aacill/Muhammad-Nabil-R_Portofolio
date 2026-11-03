@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
+/* `dark:` mengikuti class `.dark` dari next-themes (bukan prefers-color-scheme) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens — diselaraskan dengan hero beranda (MinimalistHero):
+ * latar kosmik hitam pekat, cahaya cakrawala oranye–merah, permukaan kaca,
+ * dan aksen kuning dari lingkaran potret.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(0.982 0.006 75);
+  --foreground: oklch(0.17 0.012 40);
+  --card: oklch(1 0 0 / 78%);
+  --card-foreground: oklch(0.17 0.012 40);
+  --muted: oklch(0.94 0.012 70 / 70%);
+  --muted-foreground: oklch(0.47 0.03 45);
+  --border: oklch(0.2 0.03 40 / 11%);
+  --accent: oklch(0.852 0.199 92);
+  --accent-foreground: oklch(0.145 0 0);
+  --ring: oklch(0.7 0.19 45);
+  --destructive: oklch(0.577 0.245 27);
+  --radius: 0.75rem;
+
+  /* Elevasi */
+  --elev-2xs: 0 1px 1px 0 rgb(60 20 0 / 0.04);
+  --elev-xs: 0 1px 2px 0 rgb(60 20 0 / 0.06);
+  --elev-sm: 0 6px 18px -10px rgb(120 40 0 / 0.18);
+  --elev-md: 0 0 0 1px rgb(234 88 12 / 0.18), 0 22px 48px -22px rgb(194 65 12 / 0.35);
+  --elev-lg: 0 30px 70px -30px rgb(120 40 0 / 0.35);
+  --elev-2xl: 0 40px 100px -30px rgb(120 40 0 / 0.45);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #030101;
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.155 0.014 32 / 72%);
+  --card-foreground: oklch(0.985 0 0);
+  --muted: oklch(1 0 0 / 7%);
+  --muted-foreground: oklch(0.76 0.018 60);
+  --border: oklch(1 0 0 / 12%);
+  --accent: oklch(0.852 0.199 92);
+  --accent-foreground: oklch(0.145 0 0);
+  --ring: oklch(0.852 0.199 92);
+  --destructive: oklch(0.704 0.191 22);
+
+  --elev-2xs: 0 0 0 1px rgb(255 255 255 / 0.02);
+  --elev-xs: 0 0 0 1px rgb(255 255 255 / 0.03), 0 12px 32px -20px rgb(0 0 0 / 0.9);
+  --elev-sm: 0 0 0 1px rgb(255 255 255 / 0.04), 0 16px 42px -22px rgb(234 88 12 / 0.28);
+  --elev-md: 0 0 0 1px rgb(251 146 60 / 0.32), 0 24px 60px -24px rgb(234 88 12 / 0.5);
+  --elev-lg: 0 0 0 1px rgb(251 146 60 / 0.22), 0 30px 80px -30px rgb(234 88 12 / 0.45);
+  --elev-2xl: 0 0 0 1px rgb(255 255 255 / 0.08), 0 40px 120px -30px rgb(0 0 0 / 0.95);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --font-heading: var(--font-archivo);
+  --font-sans: var(--font-space-grotesk);
+
+  --shadow-2xs: var(--elev-2xs);
+  --shadow-xs: var(--elev-xs);
+  --shadow-sm: var(--elev-sm);
+  --shadow-md: var(--elev-md);
+  --shadow-lg: var(--elev-lg);
+  --shadow-2xl: var(--elev-2xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
+}
+
+html {
+  background-color: var(--background);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk), sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-archivo), sans-serif;
+}
+
+/* Permukaan kartu kaca kosmik yang konsisten dengan pill & kartu hero */
+.bg-card {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Scrollbar bernuansa kosmik */
+.dark ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: oklch(0.1 0.006 30);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(234 88 12 / 0.55), rgb(153 27 27 / 0.55));
+  border-radius: 999px;
+  border: 2px solid oklch(0.1 0.006 30);
+}
+
+/* Teks bergradasi cahaya cakrawala (dipakai pada judul halaman) */
+.text-horizon {
+  background-image: linear-gradient(100deg, #fde047 0%, #fb923c 45%, #ef4444 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes cosmic-twinkle {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cosmic-twinkle {
+    animation: none !important;
+  }
 }

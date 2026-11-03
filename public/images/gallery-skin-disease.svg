@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+    <rect width="100%" height="100%" fill="#18181B" />
+    <defs>
+      <pattern id="grid-skin" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272A" stroke-width="1" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid-skin)" />
+    
+    <rect x="48" y="48" width="6" height="50" fill="#34D399" rx="3" />
+    <rect x="66" y="52" width="210" height="30" rx="15" fill="#27272A" />
+    <text x="171" y="72" fill="#FAFAFA" font-family="sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="1">BANGKIT CAPSTONE · AI/ML</text>
+
+    <!-- Mobile Screen Showcase & ML Diagram -->
+    <g transform="translate(60, 115)">
+      <!-- Mobile Phone Frame -->
+      <rect x="30" y="10" width="140" height="250" rx="20" fill="#09090B" stroke="#34D399" stroke-width="3" />
+      <rect x="70" y="20" width="60" height="8" rx="4" fill="#27272A" />
+      
+      <!-- Camera scan view on phone -->
+      <rect x="45" y="45" width="110" height="110" rx="10" fill="#18181B" stroke="#27272A" />
+      <!-- Scanning reticle -->
+      <rect x="55" y="55" width="90" height="90" fill="none" stroke="#34D399" stroke-width="2" stroke-dasharray="8 4" />
+      <line x1="55" y1="100" x2="145" y2="100" stroke="#34D399" stroke-width="2" />
+      
+      <!-- Prediction chip on phone -->
+      <rect x="45" y="170" width="110" height="30" rx="6" fill="#27272A" />
+      <text x="100" y="188" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">Akurasi: 94.2%</text>
+
+      <rect x="45" y="210" width="110" height="35" rx="6" fill="#34D399" />
+      <text x="100" y="232" fill="#09090B" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">Lihat Rekomendasi</text>
+
+      <!-- Architecture Pipeline to the right -->
+      <g transform="translate(200, 20)">
+        <rect width="450" height="230" rx="12" fill="#09090B" stroke="#27272A" />
+        <text x="30" y="40" fill="#FAFAFA" font-family="sans-serif" font-size="15" font-weight="700">Alur Deteksi &amp; Integrasi Cloud</text>
+        
+        <!-- Step 1: Flutter / Kotlin -->
+        <rect x="30" y="65" width="110" height="65" rx="8" fill="#18181B" stroke="#38BDF8" stroke-width="1.5" />
+        <text x="85" y="95" fill="#38BDF8" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">Flutter / Kotlin</text>
+        <text x="85" y="112" fill="#A1A1AA" font-family="sans-serif" font-size="9" text-anchor="middle">Capture &amp; UI</text>
+
+        <path d="M 145 97 L 175 97" stroke="#71717A" stroke-width="2" />
+
+        <!-- Step 2: Cloud / Storage -->
+        <rect x="175" y="65" width="110" height="65" rx="8" fill="#18181B" stroke="#FACC15" stroke-width="1.5" />
+        <text x="230" y="95" fill="#FACC15" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">Google Cloud</text>
+        <text x="230" y="112" fill="#A1A1AA" font-family="sans-serif" font-size="9" text-anchor="middle">GCS &amp; Storage</text>
+
+        <path d="M 290 97 L 320 97" stroke="#71717A" stroke-width="2" />
+
+        <!-- Step 3: TensorFlow / Python -->
+        <rect x="320" y="65" width="110" height="65" rx="8" fill="#18181B" stroke="#34D399" stroke-width="1.5" />
+        <text x="375" y="95" fill="#34D399" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">TensorFlow</text>
+        <text x="375" y="112" fill="#A1A1AA" font-family="sans-serif" font-size="9" text-anchor="middle">Python ML Model</text>
+
+        <!-- API Testing Postman Badge -->
+        <rect x="30" y="150" width="400" height="55" rx="8" fill="#18181B" stroke="#27272A" />
+        <text x="50" y="175" fill="#FAFAFA" font-family="sans-serif" font-size="12" font-weight="600">Verifikasi Endpoint API:</text>
+        <text x="50" y="193" fill="#A1A1AA" font-family="sans-serif" font-size="11">Postman REST API testing · Real-time inference &lt; 2 detik</text>
+      </g>
+    </g>
+
+    <text x="60" y="435" fill="#FAFAFA" font-family="sans-serif" font-size="24" font-weight="700">Aplikasi Deteksi Penyakit Kulit</text>
+    <text x="60" y="465" fill="#A1A1AA" font-family="sans-serif" font-size="14">Bangkit Capstone · Flutter · Kotlin · TensorFlow · Python · GCS · Postman</text>
+  </svg>
